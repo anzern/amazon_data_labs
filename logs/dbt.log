@@ -1,0 +1,84 @@
+[0m02:49:05.722654 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000262830D7AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000262830D7750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000262830D7A90>]}
+
+
+============================== 02:49:05.733307 | 0ce5d73c-4c94-4c57-8d97-5fff44189756 ==============================
+[0m02:49:05.733307 [info ] [MainThread]: Running with dbt=1.10.15
+[0m02:49:05.735106 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\Anzer\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt init amazon_analytics', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m02:49:05.763609 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\Anzer\.dbt
+[0m02:49:05.772018 [debug] [MainThread]: Starter project path: C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\dbt\include\starter_project
+[0m02:49:05.797344 [info ] [MainThread]: 
+Your new dbt project "amazon_analytics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m02:49:05.801270 [info ] [MainThread]: Setting up your profile.
+[0m02:49:43.539889 [error] [MainThread]: Encountered an error:
+
+[0m02:49:43.561733 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 178, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\dbt\task\init.py", line 261, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\dbt\task\init.py", line 242, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\click\termui.py", line 171, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\click\termui.py", line 154, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m02:49:43.561733 [debug] [MainThread]: Command `dbt init` failed at 02:49:43.561733 after 37.94 seconds
+[0m02:49:43.565600 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000262830DC4D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000262830DE550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002628307BF50>]}
+[0m02:49:43.565600 [debug] [MainThread]: Flushing usage events
+[0m02:50:11.879153 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021E395B9750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021E395B9F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021E39375350>]}
+
+
+============================== 02:50:11.881305 | 3df6d63d-771a-41b6-a946-549284b9bb55 ==============================
+[0m02:50:11.881305 [info ] [MainThread]: Running with dbt=1.10.15
+[0m02:50:11.884871 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Anzer\\.dbt', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt init dbt_amazon', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m02:50:11.902517 [debug] [MainThread]: Starter project path: C:\Users\Anzer\AppData\Roaming\Python\Python311\site-packages\dbt\include\starter_project
+[0m02:50:11.919282 [info ] [MainThread]: 
+Your new dbt project "dbt_amazon" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m02:50:11.921959 [info ] [MainThread]: Setting up your profile.
+[0m02:51:02.815463 [info ] [MainThread]: Profile dbt_amazon written to C:\Users\Anzer\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m02:51:02.815463 [debug] [MainThread]: Command `dbt init` succeeded at 02:51:02.815463 after 51.03 seconds
+[0m02:51:02.815463 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021E395C7910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021E32B15C90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021E328C4A10>]}
+[0m02:51:02.822545 [debug] [MainThread]: Flushing usage events
+[0m02:51:04.988531 [debug] [MainThread]: An error was encountered while trying to flush usage events

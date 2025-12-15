@@ -1,0 +1,14 @@
+dbt_amazon:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      user: postgres
+      password: postgres
+      port: 5432
+      dbname: amazon_analytics_db
+      schema: public
+      threads: 4
+
+

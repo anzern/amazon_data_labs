@@ -82,3 +82,42 @@ Happy modeling!
 [0m02:51:02.815463 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021E395C7910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021E32B15C90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021E328C4A10>]}
 [0m02:51:02.822545 [debug] [MainThread]: Flushing usage events
 [0m02:51:04.988531 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:00:16.708629 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70208bcab150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70208bcab650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x702089127e50>]}
+
+
+============================== 13:00:16.732693 | a8f662b3-4d85-44d4-942c-6a705c984998 ==============================
+[0m13:00:16.732693 [info ] [MainThread]: Running with dbt=1.10.15
+[0m13:00:16.736877 [debug] [MainThread]: running dbt with arguments {'empty': 'None', 'introspect': 'True', 'no_print': 'None', 'log_cache_events': 'False', 'static_parser': 'True', 'write_json': 'True', 'target_path': 'None', 'use_experimental_parser': 'False', 'debug': 'False', 'profiles_dir': '/root/.dbt', 'invocation_command': 'dbt debug', 'partial_parse': 'True', 'log_format': 'default', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'logs', 'quiet': 'False', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'warn_error': 'None', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'printer_width': '80', 'fail_fast': 'False'}
+[0m13:00:16.769744 [info ] [MainThread]: dbt version: 1.10.15
+[0m13:00:16.785454 [info ] [MainThread]: python version: 3.11.14
+[0m13:00:16.789479 [info ] [MainThread]: python path: /usr/local/bin/python3.11
+[0m13:00:16.799856 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.41
+[0m13:00:16.816189 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m13:00:16.819026 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m13:00:16.822962 [info ] [MainThread]: Using dbt_project.yml file at /app/dbt_project.yml
+[0m13:00:16.825844 [info ] [MainThread]: Configuration:
+[0m13:00:16.829656 [info ] [MainThread]:   profiles.yml file [[31mERROR not found[0m]
+[0m13:00:16.834242 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m13:00:16.838211 [info ] [MainThread]: Required dependencies:
+[0m13:00:16.842355 [debug] [MainThread]: Executing "git --help"
+[0m13:00:16.854169 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m13:00:16.856639 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m13:00:16.864490 [info ] [MainThread]: [31m3 checks failed:[0m
+[0m13:00:16.868730 [info ] [MainThread]: dbt looked for a profiles.yml file in /root/.dbt/profiles.yml, but did
+not find one. For more information on configuring your profile, consult the
+documentation:
+
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m13:00:16.871847 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </app/dbt_project.yml> not found
+
+[0m13:00:16.874378 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+
+[0m13:00:16.886724 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.30429253, "process_in_blocks": "96", "process_kernel_time": 0.333385, "process_mem_max_rss": "102604", "process_out_blocks": "56", "process_user_time": 2.127316}
+[0m13:00:16.889454 [debug] [MainThread]: Command `dbt debug` failed at 13:00:16.889118 after 0.31 seconds
+[0m13:00:16.893255 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x702088f39210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7020893db350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x702088f94a90>]}
+[0m13:00:16.899810 [debug] [MainThread]: Flushing usage events
+[0m13:00:18.789123 [debug] [MainThread]: An error was encountered while trying to flush usage events

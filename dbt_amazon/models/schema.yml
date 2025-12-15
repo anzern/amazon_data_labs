@@ -1,0 +1,10 @@
+
+version: 2
+
+sources:
+  - name: source
+    tables:
+      - name: src__click_stream
+      - name: src__customer
+      - name: src__product
+      - name: src__transactions

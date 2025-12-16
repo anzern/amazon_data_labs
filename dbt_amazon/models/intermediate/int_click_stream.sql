@@ -14,8 +14,8 @@ config(
 
 
 {% set columns = [
-    ('session_id',       'text'),
-    ('event_id',         'text'),
+    ('session_id',       'uuid'),
+    ('event_id',         'uuid'),
     ('event_name',       'text'),
     ('event_time',       'timestamp'),
     ('traffic_source',   'text'),

@@ -48,8 +48,8 @@ select
     u.customer_id, 
     count(t.booking_id) as total_transactions,
     date(max(t.created_at)) as last_transaction_date,
-    count(case when promo_code is not null then 1 end)/count(*) as promo_used_count,
-    count(case when payment_method = 'Credit Card' then 1 end)/count(*) as credit_card_usage,
+    count(case when promo_code is not null then 1 end)*1.0/count(*) as promo_used_count,
+    count(case when payment_method = 'Credit Card' then 1 end)*1.0/count(*) as credit_card_usage,
     PERCENTILE_CONT(0.5) within group (order by EXTRACT(EPOCH FROM (t.shipment_date_limit - t.created_at))) / 3600 AS ship_hours_diff,
     PERCENTILE_CONT(0.5) within group (order by total_amount) AS median_trx_amount,
     count(case 
@@ -66,16 +66,16 @@ group by 1
 , product_features as (
 select 
     u.customer_id, 
-    sum(case when p.gender in ('Men', 'Boys') then 1 else 0 end)/count(*) as male_product_ratio,
-    sum(case when p.gender in ('Woman', 'Girls') then 1 else 0 end)/count(*) as female_product_ratio,
-    sum(case when p.gender in ('Unisex') or p.gender is null then 1 else 0 end)/count(*) as unisex_product_ratio,
-    sum(case when p.masterCategory in ('Free Items') then 1 else 0 end)/count(*) as free_items_ratio,
-    sum(case when p.masterCategory in ('Accessories') then 1 else 0 end)/count(*) as accessories_product_ratio,
-    sum(case when p.masterCategory in ('Footwear') then 1 else 0 end)/count(*) as footwear_product_ratio,
-    sum(case when p.masterCategory in ('Sporting Goods') then 1 else 0 end)/count(*) as sporting_goods_product_ratio,
-    sum(case when p.masterCategory in ('Apparel') then 1 else 0 end)/count(*) as apparel_product_ratio,
-    sum(case when p.masterCategory in ('Home') then 1 else 0 end)/count(*) as home_product_ratio,
-    sum(case when p.masterCategory in ('Personal Care') then 1 else 0 end)/count(*) as personal_care_product_ratio        
+    sum(case when p.gender in ('Men', 'Boys') then 1 else 0 end)*1.0/count(*) as male_product_ratio,
+    sum(case when p.gender in ('Woman', 'Girls') then 1 else 0 end)*1.0/count(*) as female_product_ratio,
+    sum(case when p.gender in ('Unisex') or p.gender is null then 1 else 0 end)*1.0/count(*) as unisex_product_ratio,
+    sum(case when p.masterCategory in ('Free Items') then 1 else 0 end)*1.0/count(*) as free_items_ratio,
+    sum(case when p.masterCategory in ('Accessories') then 1 else 0 end)*1.0/count(*) as accessories_product_ratio,
+    sum(case when p.masterCategory in ('Footwear') then 1 else 0 end)*1.0/count(*) as footwear_product_ratio,
+    sum(case when p.masterCategory in ('Sporting Goods') then 1 else 0 end)*1.0/count(*) as sporting_goods_product_ratio,
+    sum(case when p.masterCategory in ('Apparel') then 1 else 0 end)*1.0/count(*) as apparel_product_ratio,
+    sum(case when p.masterCategory in ('Home') then 1 else 0 end)*1.0/count(*) as home_product_ratio,
+    sum(case when p.masterCategory in ('Personal Care') then 1 else 0 end)*1.0/count(*) as personal_care_product_ratio        
     from customers u
     inner join transactions t on u.customer_id = t.customer_id
     inner join product p on t.product_id = p.id
@@ -89,10 +89,10 @@ select
     t.created_at,
     count(event_id) as total_events,
     EXTRACT(EPOCH FROM (t.created_at - MIN(c.event_time) )) AS first_event_booking_to_sec,
-    count(case when duration_interval > 300 then 1  end)/(count(event_id) - 1) as hibrnate_events,
-    count(case when event_name = 'SEARCH' then 1  end)/(count(event_id)) as search_events,
-    count(case when event_name = 'PROMO_PAGE' then 1  end)/(count(event_id)) as promo_page_events,
-    count(case when event_name = 'SCROLL' then 1  end)/(count(event_id)) as scroll_events
+    count(case when duration_interval > 300 then 1  end)*1.0/(count(event_id) - 1) as hibrnate_events,
+    count(case when event_name = 'SEARCH' then 1  end)*1.0/(count(event_id)) as search_events,
+    count(case when event_name = 'PROMO_PAGE' then 1  end)*1.0/(count(event_id)) as promo_page_events,
+    count(case when event_name = 'SCROLL' then 1  end)*1.0/(count(event_id)) as scroll_events
     
     from customers u
     inner join transactions t on u.customer_id = t.customer_id
@@ -117,10 +117,29 @@ group by 1
 
 select 
     cf.customer_id,
-    cf.device_type, 
-    cf.home_location, 
+    case when cf.device_type = 'Android' then 1 else 0 end device_android, 
+    case when cf.home_location in ('Jakarta Raya','Banten', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Yogyakarta','Bali') then 1 else 0 end location_urban,
+    case when cf.home_location in ('Sumatera Utara','Sumatera Selatan', 'Riau', 'Kepulauan Riau', 'Lampung', 'Kalimantan Timur', 'Kalimantan Selatan','Sulawesi Selatan','Sulawesi Utara') then 1 else 0 end location_rural,
+    case when cf.home_location in ('Aceh',
+'Sumatera Barat',
+'Jambi',
+'Bengkulu',
+'Bangka Belitung',
+'Kalimantan Barat',
+'Kalimantan Tengah',
+'Sulawesi Tengah',
+'Sulawesi Tenggara',
+'Sulawesi Barat',
+'Gorontalo',
+'Nusa Tenggara Barat',
+'Nusa Tenggara Timur',
+'Maluku',
+'Maluku Utara',
+'Papua',
+'Papua Barat'
+) then 1 else 0 end location_tail,
     cf.age,
-    cf.gender,
+    case when cf.gender = 'M' then 1 else 0 end gender_male,
     date('2022-08-01') - tf.last_transaction_date as recency_days,
     tf.total_transactions,
     tf.promo_used_count,
